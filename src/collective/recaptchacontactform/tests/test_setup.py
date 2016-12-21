@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
-from plone import api
 from collective.recaptchacontactform.testing import COLLECTIVE_RECAPTCHACONTACTFORM_INTEGRATION_TESTING  # noqa
+from plone import api
 
 import unittest
 
@@ -18,15 +18,28 @@ class TestSetup(unittest.TestCase):
 
     def test_product_installed(self):
         """Test if collective.recaptchacontactform is installed."""
-        self.assertTrue(self.installer.isProductInstalled(
-            'collective.recaptchacontactform'))
+        self.assertTrue(
+            self.installer.isProductInstalled(
+                'collective.recaptchacontactform'
+            )
+        )
+
+    def test_plone_formwidget_recaptcha_dependency_installed(self):
+        self.assertTrue(
+            self.installer.isProductInstalled(
+                'plone.formwidget.recaptcha'
+            )
+        )
 
     def test_browserlayer(self):
         """Test that ICollectiveRecaptchacontactformLayer is registered."""
         from collective.recaptchacontactform.interfaces import (
             ICollectiveRecaptchacontactformLayer)
         from plone.browserlayer import utils
-        self.assertIn(ICollectiveRecaptchacontactformLayer, utils.registered_layers())
+        self.assertIn(
+            ICollectiveRecaptchacontactformLayer,
+            utils.registered_layers()
+        )
 
 
 class TestUninstall(unittest.TestCase):
@@ -48,4 +61,7 @@ class TestUninstall(unittest.TestCase):
         from collective.recaptchacontactform.interfaces import \
             ICollectiveRecaptchacontactformLayer
         from plone.browserlayer import utils
-        self.assertNotIn(ICollectiveRecaptchacontactformLayer, utils.registered_layers())
+        self.assertNotIn(
+            ICollectiveRecaptchacontactformLayer,
+            utils.registered_layers()
+        )
