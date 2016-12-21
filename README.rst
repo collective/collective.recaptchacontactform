@@ -78,7 +78,7 @@ The development of this plugin has been kindly sponsored by `The Document Founda
    :scale: 100 %
    :alt: kitconcept
    :align: center
-   :target: http://www.kitconcept.com/
+   :target: https://www.kitconcept.com/
 
 Developed by `kitconcept`_.
 
