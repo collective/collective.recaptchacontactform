@@ -11,6 +11,12 @@ Protect the Plone contact form from spam with reCAPTCHA 2.
 This Plone add-on adds a plone.formwidget.recaptcha spam protection field to
 the contact form.
 
+.. image:: https://github.com/collective/collective.recaptchacontactform/raw/master/docs/recaptcha-contact-form.png
+   :scale: 80 %
+   :alt: Plone reCAPTCHA contact form
+   :align: center
+
+
 
 Examples
 --------
@@ -42,6 +48,12 @@ Then you should see the ReCaptcha control panel ("@@recaptcha-settings").
 Go to https://www.google.com/recaptcha/ and register your domain in order to get a "site key" and a "secret key".
 
 Go to the ReCaptcha control panel ("@@recaptcha-settings") and enter those keys into the form. Save the form.
+
+.. image:: https://raw.githubusercontent.com/collective/collective.recaptchacontactform/master/docs/recaptcha-settings.png
+   :scale: 80 %
+   :alt: Plone reCAPTCHA control panel
+   :align: center
+
 
 If you go to the contact form now ("contact-info") and you will see an ReCaptcha field at the bottom of the form.
 
