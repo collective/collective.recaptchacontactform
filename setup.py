@@ -15,7 +15,7 @@ long_description = '\n\n'.join([
 setup(
     name='collective.recaptchacontactform',
     version='1.0a1',
-    description="Protect Plone contact form with Recaptcha 2",
+    description='Protect the Plone contact form with ReCaptcha 2 from spam.',
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[

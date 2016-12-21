@@ -6,33 +6,14 @@
 collective.recaptchacontactform
 ==============================================================================
 
-Tell me what your product does
-
-Features
---------
-
-- Can be bullet points
+Protect the Plone contact form with ReCaptcha 2 from spam.
 
 
 Examples
 --------
 
 This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
-
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
+- https://extensions.libreoffice.org/
 
 
 Installation
@@ -56,14 +37,39 @@ Contribute
 
 - Issue Tracker: https://github.com/collective/collective.recaptchacontactform/issues
 - Source Code: https://github.com/collective/collective.recaptchacontactform
-- Documentation: https://docs.plone.org/foo/bar
 
 
 Support
 -------
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+If you are having issues, please let us know via the github issue tracker: https://github.com/collective/collective.recaptchacontactform/issues
+
+
+Credits
+-------
+
+.. image:: https://www.documentfoundation.org/assets/Uploads/LibreOffice-Initial-Artwork-Logo-ColorLogoBasic-500px.png
+   :width: 250px
+   :height: 80px
+   :scale: 100 %
+   :alt: The Document Foundation
+   :align: center
+   :target: https://www.documentfoundation.org/
+
+The development of this plugin has been kindly sponsored by `The Document Foundation`_.
+
+.. image:: https://kitconcept.com/logo.png
+   :width: 230px
+   :height: 50px
+   :scale: 100 %
+   :alt: kitconcept
+   :align: center
+   :target: http://www.kitconcept.com/
+
+Developed by `kitconcept`_.
+
+.. _The Document Foundation: https://www.documentfoundation.org/
+.. _kitconcept: https://www.kitconcept.com/
 
 
 License
