@@ -13,6 +13,7 @@ Examples
 --------
 
 This add-on can be seen in action at the following sites:
+
 - https://extensions.libreoffice.org/
 
 
@@ -29,7 +30,17 @@ Install collective.recaptchacontactform by adding it to your buildout::
         collective.recaptchacontactform
 
 
-and then running ``bin/buildout``
+and then running ``bin/buildout``.
+
+Go to the Plone add-on control panel ("prefs_install_products_form") and install collective.recaptchacontactform.
+
+Then you should see the ReCaptcha control panel ("@@recaptcha-settings").
+
+Go to https://www.google.com/recaptcha/ and register your domain in order to get a "site key" and a "secret key".
+
+Go to the ReCaptcha control panel ("@@recaptcha-settings") and enter those keys into the form. Save the form.
+
+If you go to the contact form now ("contact-info") and you will see an ReCaptcha field at the bottom of the form.
 
 
 Contribute
