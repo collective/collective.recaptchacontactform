@@ -34,33 +34,36 @@ Test Teardown  Close all browsers
 
 *** Test Cases ***************************************************************
 
-Scenario: As a member I want to be able to log into the website
-  [Documentation]  Example of a BDD-style (Behavior-driven development) test.
-  Given a login form
-   When I enter valid credentials
-   Then I am logged in
+Scenario: As a system I want to protect the contact form from spam
+  Given a contact form
+   When I fill out all fields and submit the form
+   Then I see a message that I am a robot
 
 
 *** Keywords *****************************************************************
 
 # --- Given ------------------------------------------------------------------
 
-a login form
-  Go To  ${PLONE_URL}/login_form
-  Wait until page contains  Login Name
-  Wait until page contains  Password
+a contact form
+  Go To  ${PLONE_URL}/contact-info
+  Wait until page contains  Contact form
+  Wait until page contains element  css=#form-widgets-sender_fullname
 
 
 # --- WHEN -------------------------------------------------------------------
 
-I enter valid credentials
-  Input Text  __ac_name  admin
-  Input Text  __ac_password  secret
-  Click Button  Log in
+I fill out all fields and submit the form
+  Input Text  form.widgets.sender_fullname  John Doe
+  Input Text  form.widgets.sender_from_address  john@example.com
+  Input Text  form.widgets.subject  Hello
+  Input Text  form.widgets.message  Lorem ipsum
+  Click Button  Send
 
 
 # --- THEN -------------------------------------------------------------------
 
-I am logged in
-  Wait until page contains  You are now logged in
-  Page should contain  You are now logged in
+I see a message that I am a robot
+  Wait until page contains element  css=.portalMessage
+  Page should not contain  Thank you for your feedback
+  Page should contain  Please verify that you are not a robot
+
