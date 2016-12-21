@@ -6,7 +6,10 @@
 collective.recaptchacontactform
 ==============================================================================
 
-Protect the Plone contact form with ReCaptcha 2 from spam.
+Protect the Plone contact form from spam with reCAPTCHA 2.
+
+This Plone add-on adds a plone.formwidget.recaptcha spam protection field to
+the contact form.
 
 
 Examples
