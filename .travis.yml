@@ -18,7 +18,7 @@ before_script:
 - firefox -v
 script:
   - bin/code-analysis
-  - bin/test
+  - bin/test --all
 notifications:
   email:
     - info@kitconcept.com
