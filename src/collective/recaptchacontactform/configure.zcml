@@ -8,8 +8,6 @@
 
   <includeDependencies package="." />
 
-  <include package=".browser" />
-
   <adapter
     factory=".contactformextender.ContactFormExtender"
     provides="plone.z3cform.fieldsets.interfaces.IFormExtender"
@@ -32,7 +30,6 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       post_handler=".setuphandlers.uninstall"
       />
-
 
   <utility
       factory=".setuphandlers.HiddenProfiles"

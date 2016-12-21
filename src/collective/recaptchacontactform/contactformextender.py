@@ -12,7 +12,7 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 
 class IContactFormExtenderFields(Interface):
-    recaptcha = schema.TextLine(title=u'Recaptcha', required=False)
+    captcha = schema.TextLine(title=u'Recaptcha', required=False)
 
 
 @component.adapter(IPloneSiteRoot, IDefaultBrowserLayer, ContactForm)
@@ -28,5 +28,5 @@ class ContactFormExtender(extensible.FormExtender):
 
     def update(self):
         self.add(IContactFormExtenderFields, prefix='')
-        self.move('recaptcha', after='message', prefix='')
-        self.form.fields['recaptcha'].widgetFactory = ReCaptchaFieldWidget
+        self.move('captcha', after='message', prefix='')
+        self.form.fields['captcha'].widgetFactory = ReCaptchaFieldWidget
