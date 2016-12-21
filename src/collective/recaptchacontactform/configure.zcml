@@ -11,12 +11,9 @@
   <include package=".browser" />
 
   <adapter
-    factory=".contactformextender.ContactFormExtenderFactory"
-    provides=".contactformextender.IContactFormExtenderFields" />
-
-  <adapter
     factory=".contactformextender.ContactFormExtender"
-    provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
+    provides="plone.z3cform.fieldsets.interfaces.IFormExtender"
+    name="collective.recaptchacontactform.ContactFormExtender" />
 
   <genericsetup:registerProfile
       name="default"

@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
-from persistent import Persistent
 from plone.z3cform.fieldsets import extensible
 from Products.CMFPlone.browser.contact_info import ContactForm
+from Products.CMFPlone.interfaces import IPloneSiteRoot
 
 from z3c.form.field import Fields
-from zope import interface
+from zope import component
 from zope import schema
-from zope.annotation import factory
-from zope.component import adapts
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
@@ -16,19 +14,11 @@ class IContactFormExtenderFields(Interface):
     website = schema.TextLine(title=u'Website', required=False)
 
 
-class ContactFormExtenderFields(Persistent):
-    interface.implements(IContactFormExtenderFields)
-    adapts(Interface)
-    website = u''
-
-
-ContactFormExtenderFactory = factory(ContactFormExtenderFields)
-
-
+@component.adapter(IPloneSiteRoot, IDefaultBrowserLayer, ContactForm)
 class ContactFormExtender(extensible.FormExtender):
-    adapts(Interface, IDefaultBrowserLayer, ContactForm)
 
     fields = Fields(IContactFormExtenderFields)
+    ignoreContext = True
 
     def __init__(self, context, request, form):
         self.context = context
@@ -36,7 +26,5 @@ class ContactFormExtender(extensible.FormExtender):
         self.form = form
 
     def update(self):
-        # Add the fields defined in ICommentExtenderFields to the form.
         self.add(IContactFormExtenderFields, prefix='')
-        # Move the website field to the top of the comment form.
-        self.move('website', before='message', prefix='')
+        self.move('website', after='message', prefix='')
