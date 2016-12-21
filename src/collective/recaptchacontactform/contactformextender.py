@@ -12,7 +12,7 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 
 class IContactFormExtenderFields(Interface):
-    captcha = schema.TextLine(title=u'Recaptcha', required=False)
+    captcha = schema.TextLine(title=u'', required=False)
 
 
 @component.adapter(IPloneSiteRoot, IDefaultBrowserLayer, ContactForm)

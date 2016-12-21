@@ -32,7 +32,7 @@ class PatchedContactForm(AutoExtensibleForm, ContactForm):
         )
         if not captcha.verify():
             api.portal.show_message(
-                'Please validate that you are not a robot',
+                'Please verify that you are not a robot',
                 self.request,
                 type=u'error'
             )
