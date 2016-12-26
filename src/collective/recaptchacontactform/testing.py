@@ -41,8 +41,8 @@ class CollectiveRecaptchacontactformLayer(PloneSandboxLayer):
         recaptcha_settings = registry.forInterface(IReCaptchaSettings)
         if recaptcha_settings is None:
             return
-        recaptcha_settings.public_key = u'123'
-        recaptcha_settings.private_key = u'123'
+        recaptcha_settings.public_key = u'6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'  # noqa
+        recaptcha_settings.private_key = u'6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'  # noqa
         recaptcha_settings.display_theme = u'light'
         recaptcha_settings.display_type = u'image'
         recaptcha_settings.display_size = u'normal'

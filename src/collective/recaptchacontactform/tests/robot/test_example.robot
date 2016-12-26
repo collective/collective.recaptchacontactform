@@ -21,6 +21,11 @@
 #
 # ============================================================================
 
+*** Variables ***
+
+# ${BROWSER}  chrome
+
+
 *** Settings *****************************************************************
 
 Resource  plone/app/robotframework/selenium.robot
@@ -39,14 +44,25 @@ Scenario: As a system I want to protect the contact form from spam
    When I fill out all fields and submit the form
    Then I see a message that I am a robot
 
+Scenario: As a system I want to protect the contact form in an overlay from spam
+  Given a contact form in an overlay
+   When I fill out all fields and submit the form
+   Then I see a message that I am a robot
+
 
 *** Keywords *****************************************************************
 
 # --- Given ------------------------------------------------------------------
 
 a contact form
-  Go To  ${PLONE_URL}/contact-info
+  Go to  ${PLONE_URL}/contact-info
   Wait until page contains  Contact form
+  Wait until page contains element  css=#form-widgets-sender_fullname
+
+a contact form in an overlay
+  Go to  ${PLONE_URL}
+  Wait until page contains element  xpath=//a[contains(@href, 'contact-info')]
+  Click link  xpath=//a[contains(@href, 'contact-info')]
   Wait until page contains element  css=#form-widgets-sender_fullname
 
 
