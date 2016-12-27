@@ -46,7 +46,7 @@ Scenario: As a system I want to protect the contact form from spam
 
 Scenario: As a system I want to protect the contact form in an overlay from spam
   Given a contact form in an overlay
-   When I fill out all fields and submit the form
+   When I fill out all fields and submit the overlay form
    Then I see a message that I am a robot
 
 
@@ -74,6 +74,13 @@ I fill out all fields and submit the form
   Input Text  form.widgets.subject  Hello
   Input Text  form.widgets.message  Lorem ipsum
   Click Button  Send
+
+I fill out all fields and submit the overlay form
+  Input Text  form.widgets.sender_fullname  John Doe
+  Input Text  form.widgets.sender_from_address  john@example.com
+  Input Text  form.widgets.subject  Hello
+  Input Text  form.widgets.message  Lorem ipsum
+  Click element  css=.plone-modal-footer #form-buttons-send
 
 
 # --- THEN -------------------------------------------------------------------
