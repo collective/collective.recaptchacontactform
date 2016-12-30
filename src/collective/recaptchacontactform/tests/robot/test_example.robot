@@ -55,6 +55,15 @@ Scenario: As an anonymous user I can send a message to the site owner
     and I fill out all fields and submit the form
    Then my message has been sent to the site owner
 
+Scenario: As an anonymous user I can send a message to the site owner in an overlay
+  Given a contact form in an overlay
+   When I confirm that I am not a robot
+    and I fill out all fields and submit the overlay form
+# XXX: This line fails due to a bug in Plone:
+# https://github.com/plone/Products.CMFPlone/issues/1886
+#   Then my message has been sent to the site owner
+
+
 
 *** Keywords *****************************************************************
 
