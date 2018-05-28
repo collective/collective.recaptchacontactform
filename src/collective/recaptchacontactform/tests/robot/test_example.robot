@@ -111,5 +111,5 @@ I see a message that I am a robot
   Page should contain  Please validate the recaptcha field before sending the form.
 
 my message has been sent to the site owner
-  Wait until page contains element  css=.portalMessage
+  Wait until page contains  A mail has now been sent
   Page should contain  Thank you for your feedback
