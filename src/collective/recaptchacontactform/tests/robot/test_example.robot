@@ -86,7 +86,8 @@ a contact form in an overlay
 I fill out all fields and submit the form
   Input Text  form.widgets.sender_fullname  John Doe
   Input Text  form.widgets.sender_from_address  john@example.com
-  Input Text  form.widgets.subject  Hello
+  # XXX: no idea why name selector does not work here.
+  Input Text  css=#form-widgets-subject  Hello
   Input Text  form.widgets.message  Lorem ipsum
   Click Button  Send
 
@@ -98,7 +99,9 @@ I fill out all fields and submit the overlay form
   Click element  css=.plone-modal-footer #form-buttons-send
 
 I confirm that I am not a robot
+  Wait until page contains element  css=.g-recaptcha iframe
   Select frame  css=.g-recaptcha iframe
+  Wait until page contains element  css=.recaptcha-checkbox-checkmark
   Click element  css=.recaptcha-checkbox-checkmark
   Unselect frame
 
