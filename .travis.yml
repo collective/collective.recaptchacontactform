@@ -22,7 +22,7 @@ install:
   - python bootstrap-buildout.py
   - bin/buildout -N buildout:download-cache=downloads -c travis.cfg
 before_script:
-  - wget "http://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip"
+  - wget "hhttps://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip"
   - unzip chromedriver_linux64.zip
   - sudo mv chromedriver /usr/local/bin
   - export DISPLAY=:99.0
