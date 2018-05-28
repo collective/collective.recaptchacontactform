@@ -14,7 +14,6 @@ from zope import schema
 from zope.component import getMultiAdapter
 from zope.interface import implementer
 from zope.interface import Interface
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope.schema import ValidationError
 from zope.schema.interfaces import IField
 
@@ -27,7 +26,7 @@ class IContactFormExtenderFields(Interface):
     captcha = schema.TextLine(title=u'', required=False)
 
 
-@component.adapter(IPloneSiteRoot, IDefaultBrowserLayer, ContactForm)
+@component.adapter(IPloneSiteRoot, ICollectiveRecaptchacontactformLayer, ContactForm) # noqa
 class ContactFormExtender(extensible.FormExtender):
 
     fields = Fields(IContactFormExtenderFields)
