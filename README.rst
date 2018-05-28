@@ -6,6 +6,27 @@
 collective.recaptchacontactform
 ==============================================================================
 
+.. image:: https://travis-ci.org/collective/collective.recaptchacontactform.svg?branch=master
+    :target: https://travis-ci.org/collective/collective.recaptchacontactform
+
+.. image:: https://img.shields.io/pypi/status/collective.recaptchacontactform.svg
+    :target: https://pypi.python.org/pypi/collective.recaptchacontactform/
+    :alt: Egg Status
+
+.. image:: https://img.shields.io/pypi/v/collective.recaptchacontactform.svg
+    :target: https://pypi.python.org/pypi/collective.recaptchacontactform
+    :alt: Latest Version
+
+.. image:: https://img.shields.io/pypi/l/collective.recaptchacontactform.svg
+    :target: https://pypi.python.org/pypi/collective.recaptchacontactform
+    :alt: License
+
+|
+
+.. image:: https://raw.githubusercontent.com/collective/collective.recaptchacontactform/master/kitconcept.png
+   :alt: kitconcept
+   :target: https://kitconcept.com/
+
 Protect the Plone contact form from spam with reCAPTCHA 2.
 
 This Plone add-on adds a plone.formwidget.recaptcha spam protection field to
