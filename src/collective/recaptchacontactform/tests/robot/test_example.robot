@@ -33,7 +33,7 @@ Resource  plone/app/robotframework/keywords.robot
 
 Library  Remote  ${PLONE_URL}/RobotRemote
 
-Test Setup  Open test browser
+Test Setup  Open chrome browser
 Test Teardown  Close all browsers
 
 
@@ -66,6 +66,18 @@ Scenario: As an anonymous user I can send a message to the site owner in an over
 
 
 *** Keywords *****************************************************************
+
+
+# --- Setup ------------------------------------------------------------------
+
+Open chrome browser
+  ${options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
+  Call Method  ${options}  add_argument  headless
+  Call Method  ${options}  add_argument  disable-extensions
+  Call Method  ${options}  add_argument  disable-web-security
+  Call Method  ${options}  add_argument  window-size\=1280,1024
+  # Call Method  ${options}  add_argument  remote-debugging-port\=9223
+  Create WebDriver  Chrome  chrome_options=${options}
 
 # --- Given ------------------------------------------------------------------
 
