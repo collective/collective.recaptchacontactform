@@ -33,7 +33,7 @@ Resource  plone/app/robotframework/keywords.robot
 
 Library  Remote  ${PLONE_URL}/RobotRemote
 
-Test Setup  Open test browser
+Test Setup  Open chrome browser
 Test Teardown  Close all browsers
 
 
@@ -67,6 +67,18 @@ Scenario: As an anonymous user I can send a message to the site owner in an over
 
 *** Keywords *****************************************************************
 
+
+# --- Setup ------------------------------------------------------------------
+
+Open chrome browser
+  ${options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
+  # Call Method  ${options}  add_argument  headless
+  Call Method  ${options}  add_argument  disable-extensions
+  Call Method  ${options}  add_argument  disable-web-security
+  Call Method  ${options}  add_argument  window-size\=1280,1024
+  # Call Method  ${options}  add_argument  remote-debugging-port\=9223
+  Create WebDriver  Chrome  chrome_options=${options}
+
 # --- Given ------------------------------------------------------------------
 
 a contact form
@@ -86,8 +98,12 @@ a contact form in an overlay
 I fill out all fields and submit the form
   Input Text  form.widgets.sender_fullname  John Doe
   Input Text  form.widgets.sender_from_address  john@example.com
-  Input Text  form.widgets.subject  Hello
+  # XXX: no idea why name selector does not work here.
+  Input Text  css=#form-widgets-subject  Hello
   Input Text  form.widgets.message  Lorem ipsum
+  Sleep  2
+  Input Text  css=#form-widgets-subject  Hello
+  Input Text  css=#form-widgets-sender_from_address  john@example.com
   Click Button  Send
 
 I fill out all fields and submit the overlay form
@@ -95,10 +111,15 @@ I fill out all fields and submit the overlay form
   Input Text  form.widgets.sender_from_address  john@example.com
   Input Text  form.widgets.subject  Hello
   Input Text  form.widgets.message  Lorem ipsum
+  Sleep  2
+  Input Text  css=#form-widgets-subject  Hello
+  Input Text  css=#form-widgets-sender_from_address  john@example.com
   Click element  css=.plone-modal-footer #form-buttons-send
 
 I confirm that I am not a robot
+  Wait until page contains element  css=.g-recaptcha iframe
   Select frame  css=.g-recaptcha iframe
+  Wait until page contains element  css=.recaptcha-checkbox-checkmark
   Click element  css=.recaptcha-checkbox-checkmark
   Unselect frame
 
@@ -111,5 +132,10 @@ I see a message that I am a robot
   Page should contain  Please validate the recaptcha field before sending the form.
 
 my message has been sent to the site owner
-  Wait until page contains  A mail has now been sent
+  # Wait until page contains  A mail has now been sent
+  Wait until page contains element  css=.portalMessage
+  # Page should contain element  css=.info
+  ${src}=  Selenium2Library.Get Source
+  Log  ${src}  WARN
+  Wait until page contains  Thank you for your feedback
   Page should contain  Thank you for your feedback
