@@ -96,6 +96,8 @@ I fill out all fields and submit the overlay form
   Input Text  form.widgets.sender_from_address  john@example.com
   Input Text  form.widgets.subject  Hello
   Input Text  form.widgets.message  Lorem ipsum
+  Sleep  2
+  Input Text  css=#form-widgets-subject  Hello
   Click element  css=.plone-modal-footer #form-buttons-send
 
 I confirm that I am not a robot
