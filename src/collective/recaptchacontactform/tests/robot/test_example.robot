@@ -103,6 +103,7 @@ I fill out all fields and submit the form
   Input Text  form.widgets.message  Lorem ipsum
   Sleep  2
   Input Text  css=#form-widgets-subject  Hello
+  Input Text  css=#form-widgets-sender_from_address  john@example.com
   Click Button  Send
 
 I fill out all fields and submit the overlay form
