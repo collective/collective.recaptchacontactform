@@ -115,4 +115,5 @@ I see a message that I am a robot
 
 my message has been sent to the site owner
   Wait until page contains element  css=.portalMessage
+  Wait until page contains  Thank you for your feedback
   Page should contain  Thank you for your feedback
