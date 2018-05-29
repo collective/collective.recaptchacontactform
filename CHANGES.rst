@@ -5,7 +5,8 @@ Changelog
 1.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add support for Plone 5.1.
+  [sneridagh]
 
 
 1.0a2 (2016-12-21)
