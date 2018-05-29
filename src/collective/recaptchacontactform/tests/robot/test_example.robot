@@ -72,7 +72,7 @@ Scenario: As an anonymous user I can send a message to the site owner in an over
 
 Open chrome browser
   ${options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
-  Call Method  ${options}  add_argument  headless
+  # Call Method  ${options}  add_argument  headless
   Call Method  ${options}  add_argument  disable-extensions
   Call Method  ${options}  add_argument  disable-web-security
   Call Method  ${options}  add_argument  window-size\=1280,1024
@@ -101,6 +101,8 @@ I fill out all fields and submit the form
   # XXX: no idea why name selector does not work here.
   Input Text  css=#form-widgets-subject  Hello
   Input Text  form.widgets.message  Lorem ipsum
+  Sleep  2
+  Input Text  css=#form-widgets-subject  Hello
   Click Button  Send
 
 I fill out all fields and submit the overlay form
@@ -129,6 +131,7 @@ I see a message that I am a robot
 
 my message has been sent to the site owner
   Wait until page contains element  css=.portalMessage
+  Page should contain element  css=.info
   ${src}=  Selenium2Library.Get Source
   Log  ${src}  WARN
   Wait until page contains  Thank you for your feedback
