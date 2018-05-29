@@ -129,9 +129,10 @@ I confirm that I am not a robot
 I see a message that I am a robot
   Wait until page contains element  css=.portalMessage
   Page should not contain  Thank you for your feedback
-  Page should contain  Please verify that you are not a robot
+  Page should contain  Please validate the recaptcha field before sending the form.
 
 my message has been sent to the site owner
+  # Wait until page contains  A mail has now been sent
   Wait until page contains element  css=.portalMessage
   # Page should contain element  css=.info
   ${src}=  Selenium2Library.Get Source

@@ -35,4 +35,9 @@
       factory=".setuphandlers.HiddenProfiles"
       name="collective.recaptchacontactform-hiddenprofiles" />
 
+<adapter
+    factory=".contactformextender.CaptchaValidator"
+    provides="z3c.form.interfaces.IValidator"
+    />
+
 </configure>
