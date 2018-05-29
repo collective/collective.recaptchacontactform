@@ -131,7 +131,7 @@ I see a message that I am a robot
 
 my message has been sent to the site owner
   Wait until page contains element  css=.portalMessage
-  Page should contain element  css=.info
+  # Page should contain element  css=.info
   ${src}=  Selenium2Library.Get Source
   Log  ${src}  WARN
   Wait until page contains  Thank you for your feedback
